@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SWIS BOT 6 🤖</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 80px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #f0f0f0;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            margin: 5px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            color: white;
+        }
+
+        .next { background-color: #22c55e; }
+        .prev { background-color: #3b82f6; }
+        .btn:hover { opacity: 0.8; }
+
+        .bottom-left { position: fixed; bottom: 20px; left: 20px; }
+        .bottom-right { position: fixed; bottom: 20px; right: 20px; }
+    </style>
+</head>
+
+<body>
+
+<h1>🤖 SWIS BOT 6</h1>
+<p>Developed by St. Willibrord Students 🚀</p>
+<p>If the bot stops replying, click Next Bot →</p>
+
+<!-- Buttons -->
+<div class="bottom-left">
+    <a href="https://swis-bot.github.io/SWIS-BOT_5/">
+        <button class="btn prev">← Previous Bot</button>
+    </a>
+</div>
+
+<div class="bottom-right">
+    <a href="https://swis-bot.github.io/SWIS-BOT_7/">
+        <button class="btn next">Next Bot →</button>
+    </a>
+</div>
+
+<!-- Chatbase script -->
+<script>
+(function(){
+    if(!window.chatbase || window.chatbase("getState") !== "initialized"){
+        window.chatbase = (...args)=>{
+            if(!window.chatbase.q){window.chatbase.q=[]}
+            window.chatbase.q.push(args)
+        };
+        window.chatbase = new Proxy(window.chatbase, {
+            get(target, prop){ if(prop === "q"){ return target.q } return (...args)=>target(prop, ...args) }
+        });
+    }
+    const onLoad = function(){
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "PUT_BOT_6_ID_HERE";
+        script.domain = "www.chatbase.co";
+        document.body.appendChild(script);
+    };
+    if(document.readyState === "complete"){ onLoad() } 
+    else { window.addEventListener("load", onLoad); }
+})();
+</script>
+
+</body>
+</html>
